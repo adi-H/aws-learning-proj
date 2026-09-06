@@ -1,0 +1,37 @@
+# --------------------------------------------------------------------------
+# Core Terraform Directories and State Files
+# --------------------------------------------------------------------------
+# Local .terraform directory containing downloaded modules and providers
+.terraform/
+
+# Local state files. (Always use a remote backend like S3/GCS in production!)
+*.tfstate
+*.tfstate.*
+
+# Crash log files (if a terraform command fails catastrophically)
+crash.log
+crash.*.log
+
+# --------------------------------------------------------------------------
+# Variables and Secrets
+# --------------------------------------------------------------------------
+# Exclude all variable files because they often contain sensitive credentials/secrets
+*.tfvars
+*.tfvars.json
+
+# Ignore override files (used for local-only adjustments)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# --------------------------------------------------------------------------
+# CLI Configuration and Tooling
+# --------------------------------------------------------------------------
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore plan files generated via `terraform plan -out=tfplan`
+# (These can contain sensitive plan data and shouldn't be tracked)
+*tfplan*
