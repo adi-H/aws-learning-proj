@@ -31,3 +31,9 @@ variable "user_data" {
   type        = string
   default     = null
 }
+
+variable "instance_profile_name" {
+  description = "The name of the existing IAM instance profile to attach to the EC2 instance"
+  type        = string
+  default     = null
+}
