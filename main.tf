@@ -4,9 +4,16 @@ module "nginx-vm" {
   sg_name = "nginx-vm-sg"
   vm_name = "nginx-vm"
 
-  tags = { env = "dev", service = "nginx"}
+  tags = { env = "dev", service = "nginx" }
 
-  user_data = ""
+  user_data = <<-EOF
+              #!/bin/bash
+              dnf update -y
+              dnf install -y httpd
+              systemctl start httpd
+              systemctl enable httpd
+              echo "<h1>Hello World from EC2 deployed via Terraform!</h1>" > /var/www/html/index.html
+              EOF
 }
 
 # adding http only to nginx vm
