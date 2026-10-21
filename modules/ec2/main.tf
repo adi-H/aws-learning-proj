@@ -2,7 +2,7 @@
 resource "aws_security_group" "sg" {
   name        = var.sg_name
   description = "sg group for the ec2 instance"
-  vpc_id      = var.vpc_id
+  vpc_id      = data.aws_vpc.selected.id
 
   tags = {
     Name = var.sg_name
@@ -48,7 +48,7 @@ resource "aws_instance" "vm" {
   # passing the name of the basic sg group i created above so i can export and add others if needed 
   vpc_security_group_ids = [aws_security_group.sg.id]
 
-  subnet_id = var.subnet_id
+  subnet_id = data.aws_subnet.selected.id
 
   # for now i am using basic root block device and later will add more functionality
   # the base linux ami has a root device of 8gb

@@ -11,11 +11,13 @@ variable "sg_name" {
 variable "vpc_id" {
   type        = string
   description = "The ID of the VPC where the Security Group will be created"
+  default     = null
 }
 
 variable "subnet_id" {
   type        = string
   description = "The ID of the Subnet where the EC2 instance will be deployed"
+  default     = null
 }
 
 variable "environment" {
