@@ -1,5 +1,5 @@
 ## ec2 
-__last update__ - sept 6, 2026 
+__last update__ - oct 21, 2026 
 
 #### what did i learn 
 - how does ec2 work in aws
@@ -7,6 +7,7 @@ __last update__ - sept 6, 2026
 - why should i use terraform modules, even in smaller scale projects 
 - basic aws networking 
   - when to use the security group and how, and how to increase code modularity
+  - there is a default vpc that is attached to the ec2's sg, and there is inbound and outbound traffic
 
 #### related resources 
 
