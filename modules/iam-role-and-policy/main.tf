@@ -42,8 +42,8 @@ resource "aws_iam_role_policy_attachment" "this" {
 
 # create instance-profile to allow an ec2 instance to use this role
 resource "aws_iam_instance_profile" "this" {
-  name = "ec2-s3-instance-profile"
-  role = aws_iam_role.this.name
+  name_prefix = "ec2-s3-instance-profile"
+  role        = aws_iam_role.this.name
 
   depends_on = [
     aws_iam_role_policy_attachment.this
