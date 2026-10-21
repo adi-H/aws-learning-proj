@@ -1,3 +1,10 @@
+module "networking" {
+  source             = "./modules/networking"
+  vpc_cidr           = "10.0.0.0/16"
+  public_subnet_cidr = "10.0.1.0/24"
+  environment        = "dev"
+}
+
 module "my-bucket-1" {
   source = "./modules/s3-bucket"
 
@@ -14,6 +21,10 @@ module "nginx-vm" {
 
   sg_name = "nginx-vm-sg"
   vm_name = "nginx-vm"
+
+  environment = "dev"
+  vpc_id      = module.networking.vpc_id
+  subnet_id   = module.networking.public_subnet_id
 
   tags = { env = "dev", service = "nginx" }
 
