@@ -55,3 +55,7 @@ variable "additional_policy_arns" {
   default     = []
   description = "A list of extra IAM policy ARNs to attach to the EC2 instance"
 }
+
+variable "networking_security_group_id" {
+  type = string
+}

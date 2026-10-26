@@ -46,6 +46,7 @@ No modules.
 | <a name="input_environment"></a> [environment](#input\_environment) | the env name | `string` | `"test"` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | EC2 instance type | `string` | `"t3.micro"` | no |
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | SSH key pair name. Set to null to disable SSH key. | `string` | `null` | no |
+| <a name="input_networking_security_group_id"></a> [networking\_security\_group\_id](#input\_networking\_security\_group\_id) | n/a | `string` | n/a | yes |
 | <a name="input_sg_name"></a> [sg\_name](#input\_sg\_name) | Name tag for the security-group instance | `string` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | The ID of the Subnet where the EC2 instance will be deployed | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags | `map(string)` | `{}` | no |

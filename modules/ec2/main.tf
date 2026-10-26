@@ -46,7 +46,10 @@ resource "aws_instance" "vm" {
   )
 
   # passing the name of the basic sg group i created above so i can export and add others if needed 
-  vpc_security_group_ids = [aws_security_group.sg.id]
+  vpc_security_group_ids = [
+    aws_security_group.sg.id,
+    var.networking_security_group_id
+  ]
 
   subnet_id = data.aws_subnet.selected.id
 
@@ -58,5 +61,8 @@ resource "aws_instance" "vm" {
     encrypted             = true
     delete_on_termination = true
   }
+
+  depends_on = [aws_iam_role_policy_attachment.ssm_core,
+  aws_iam_role_policy_attachment.extra_policies]
 
 }

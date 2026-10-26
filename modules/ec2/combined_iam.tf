@@ -18,9 +18,9 @@ resource "aws_iam_role_policy_attachment" "ssm_core" {
 }
 
 resource "aws_iam_role_policy_attachment" "extra_policies" {
-  for_each   = toset(var.additional_policy_arns)
+  count      = length(var.additional_policy_arns)
   role       = aws_iam_role.combined_role.name
-  policy_arn = each.value
+  policy_arn = var.additional_policy_arns[count.index]
 }
 
 resource "aws_iam_instance_profile" "final_profile" {
