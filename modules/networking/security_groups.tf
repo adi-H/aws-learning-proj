@@ -27,15 +27,6 @@ resource "aws_security_group_rule" "alb_allow_http" {
   security_group_id = aws_security_group.alb_sg.id
 }
 
-resource "aws_security_group_rule" "temp_test" {
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  cidr_blocks       = ["10.0.0.0/16"] # Your entire VPC CIDR block
-  security_group_id = aws_security_group.app_sg.id
-}
-
 resource "aws_security_group_rule" "alb_allow_all_egress" {
   type              = "egress"
   from_port         = 0
