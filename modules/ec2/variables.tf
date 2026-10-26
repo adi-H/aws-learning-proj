@@ -50,8 +50,8 @@ variable "user_data" {
   default     = null
 }
 
-variable "instance_profile_name" {
-  description = "The name of the existing IAM instance profile to attach to the EC2 instance"
-  type        = string
-  default     = null
+variable "additional_policy_arns" {
+  type        = list(string)
+  default     = []
+  description = "A list of extra IAM policy ARNs to attach to the EC2 instance"
 }

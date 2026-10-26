@@ -34,7 +34,7 @@ resource "aws_instance" "vm" {
   instance_type = var.instance_type
   key_name      = var.key_name
 
-  iam_instance_profile = var.instance_profile_name
+  iam_instance_profile = aws_iam_instance_profile.final_profile.name
 
   user_data = var.user_data
 
