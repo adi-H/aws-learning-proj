@@ -1,8 +1,10 @@
 ## networking
-__last update__ - oct 21, 2026 
+__last update__ - oct 26, 2026 
 
 #### what did i learn 
 - deploying different network (using ui and tf) 
+- ALB requires at least 2 public subnets in 2 availability zones 
+- lb objects and checking on the tree in aws consule  
 - the hierarchy of using network components 
 
 | Component | Layer | Purpose | Terraform Resource |

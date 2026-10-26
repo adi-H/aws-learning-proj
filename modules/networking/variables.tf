@@ -3,9 +3,22 @@ variable "vpc_cidr" {
   description = "The IP range for the entire VPC"
 }
 
-variable "public_subnet_cidr" {
-  type        = string
-  description = "The IP range for the public subnet"
+variable "public_1_subnet" {
+  type = object({
+    cidr_block = string
+  })
+}
+
+variable "public_2_subnet" {
+  type = object({
+    cidr_block = string
+  })
+}
+
+variable "private_subnet" {
+  type = object({
+    cidr_block = string
+  })
 }
 
 variable "environment" {
