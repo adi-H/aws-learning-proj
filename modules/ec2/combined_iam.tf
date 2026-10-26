@@ -1,4 +1,5 @@
 resource "aws_iam_role" "combined_role" {
+  name = "ec2_combined_iam_role"
   tags = { Name = "${var.environment}-ec2_combined_role" }
 
   assume_role_policy = jsonencode({
@@ -6,7 +7,7 @@ resource "aws_iam_role" "combined_role" {
     Statement = [{
       Action    = "sts:AssumeRole"
       Effect    = "Allow"
-      Principal = { Service = "://amazonaws.com" }
+      Principal = { Service = "ec2.amazonaws.com" }
     }]
   })
 }
