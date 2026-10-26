@@ -34,6 +34,6 @@ No modules.
 
 | Name | Description |
 | ---- | ----------- |
-| <a name="output_instance_profile_arn"></a> [instance\_profile\_arn](#output\_instance\_profile\_arn) | The ARN of the instance profile to pass directly to your EC2 instance module |
+| <a name="output_iam_policy_arn"></a> [iam\_policy\_arn](#output\_iam\_policy\_arn) | The ARN of the IAM policy |
 | <a name="output_instance_profile_name"></a> [instance\_profile\_name](#output\_instance\_profile\_name) | The name of the instance profile to pass directly to your EC2 instance module |
 <!-- END_TF_DOCS -->
