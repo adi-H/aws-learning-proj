@@ -1,0 +1,1 @@
+DISCLAIMER: these are learning logs i keep to document the process, not official pieces of documentation 

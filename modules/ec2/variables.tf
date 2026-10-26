@@ -8,6 +8,24 @@ variable "sg_name" {
   type        = string
 }
 
+variable "vpc_id" {
+  type        = string
+  description = "The ID of the VPC where the Security Group will be created"
+  default     = null
+}
+
+variable "subnet_id" {
+  type        = string
+  description = "The ID of the Subnet where the EC2 instance will be deployed"
+  default     = null
+}
+
+variable "environment" {
+  description = "the env name"
+  type        = string
+  default     = "test"
+}
+
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
@@ -32,8 +50,12 @@ variable "user_data" {
   default     = null
 }
 
-variable "instance_profile_name" {
-  description = "The name of the existing IAM instance profile to attach to the EC2 instance"
-  type        = string
-  default     = null
+variable "additional_policy_arns" {
+  type        = list(string)
+  default     = []
+  description = "A list of extra IAM policy ARNs to attach to the EC2 instance"
+}
+
+variable "networking_security_group_id" {
+  type = string
 }

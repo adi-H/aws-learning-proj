@@ -1,11 +1,8 @@
-data "aws_vpc" "default" {
-  default = true
-}
 
 resource "aws_security_group" "sg" {
   name        = var.sg_name
   description = "sg group for the ec2 instance"
-  vpc_id      = data.aws_vpc.default.id
+  vpc_id      = data.aws_vpc.selected.id
 
   tags = {
     Name = var.sg_name
@@ -37,7 +34,7 @@ resource "aws_instance" "vm" {
   instance_type = var.instance_type
   key_name      = var.key_name
 
-  iam_instance_profile = var.instance_profile_name
+  iam_instance_profile = aws_iam_instance_profile.final_profile.name
 
   user_data = var.user_data
 
@@ -49,8 +46,12 @@ resource "aws_instance" "vm" {
   )
 
   # passing the name of the basic sg group i created above so i can export and add others if needed 
-  vpc_security_group_ids = [aws_security_group.sg.id]
+  vpc_security_group_ids = [
+    aws_security_group.sg.id,
+    var.networking_security_group_id
+  ]
 
+  subnet_id = data.aws_subnet.selected.id
 
   # for now i am using basic root block device and later will add more functionality
   # the base linux ami has a root device of 8gb
@@ -60,5 +61,8 @@ resource "aws_instance" "vm" {
     encrypted             = true
     delete_on_termination = true
   }
+
+  depends_on = [aws_iam_role_policy_attachment.ssm_core,
+  aws_iam_role_policy_attachment.extra_policies]
 
 }
