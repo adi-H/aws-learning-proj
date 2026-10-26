@@ -1,8 +1,17 @@
 module "networking" {
-  source             = "./modules/networking"
-  vpc_cidr           = "10.0.0.0/16"
-  public_subnet_cidr = "10.0.1.0/24"
-  environment        = "dev"
+  source = "./modules/networking"
+  public_1_subnet = {
+    cidr_block = "10.0.1.0/24"
+  }
+  public_2_subnet = {
+    cidr_block = "10.0.2.0/24"
+  }
+  private_subnet = {
+    cidr_block = "10.0.3.0/24"
+  }
+
+  vpc_cidr    = "10.0.0.0/16"
+  environment = "dev"
 }
 
 module "my-bucket-1" {
@@ -24,11 +33,12 @@ module "nginx-vm" {
 
   environment = "dev"
   vpc_id      = module.networking.vpc_id
-  subnet_id   = module.networking.public_subnet_id
+  subnet_id   = module.networking.private_subnet_id
 
   tags = { env = "dev", service = "nginx" }
 
-  instance_profile_name = module.ec2-access-to-my-bucket.instance_profile_name
+  additional_policy_arns       = [module.ec2-access-to-my-bucket.iam_policy_arn]
+  networking_security_group_id = module.networking.app_sg_id
 
   user_data = <<-EOF
               #!/bin/bash
@@ -42,13 +52,18 @@ module "nginx-vm" {
   depends_on = [module.ec2-access-to-my-bucket]
 }
 
-# adding http only to nginx vm
-resource "aws_security_group_rule" "web_http_ingress" {
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = module.nginx-vm.security_group_id # Links to the web server SG
-  depends_on        = [module.nginx-vm]
+resource "aws_lb_target_group_attachment" "web_app" {
+  target_group_arn = module.networking.target_group_arn
+  target_id        = module.nginx-vm.instance_id
+  port             = 80
 }
+# # adding http only to nginx vm
+# resource "aws_security_group_rule" "web_http_ingress" {
+#   type              = "ingress"
+#   from_port         = 80
+#   to_port           = 80
+#   protocol          = "tcp"
+#   cidr_blocks       = ["0.0.0.0/0"]
+#   security_group_id = module.nginx-vm.security_group_id # Links to the web server SG
+#   depends_on        = [module.nginx-vm]
+# }
