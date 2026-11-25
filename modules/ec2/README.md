@@ -1,6 +1,6 @@
 # Terraform Module: AWS ec2
 
-This module provisions a basic AWS ec2 instance. this comes with a basic private security group to allow incoming traffic
+This module provisions a basic AWS ec2 instance. this comes with its own security group (outbound traffic only by default - extra groups can be attached with `additional_security_group_ids`), and access to the instance is through ssm
 
 
 <!-- BEGIN_TF_DOCS -->
@@ -32,7 +32,6 @@ No modules.
 | [aws_instance.vm](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/instance) | resource |
 | [aws_security_group.sg](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group) | resource |
 | [aws_vpc_security_group_egress_rule.allow_all_outbound](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/vpc_security_group_egress_rule) | resource |
-| [aws_vpc_security_group_ingress_rule.allow_ssh](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/vpc_security_group_ingress_rule) | resource |
 | [aws_ami.amazon_linux](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/data-sources/ami) | data source |
 | [aws_subnet.selected](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/data-sources/subnet) | data source |
 | [aws_subnets.fallback](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/data-sources/subnets) | data source |

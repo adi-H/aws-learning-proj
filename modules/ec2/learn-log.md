@@ -27,4 +27,3 @@ __last update__ - nov 25, 2026
   - monitoring
   - other operating systems support
   - change the user_data into base64 (when relevant) 
-- remove the open ssh (port 22) rule, now that access is through ssm
