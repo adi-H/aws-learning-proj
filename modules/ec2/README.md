@@ -8,7 +8,7 @@ This module provisions a basic AWS ec2 instance. this comes with a basic private
 
 | Name | Version |
 | ---- | ------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14.9 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.61.0 |
 
 ## Providers

@@ -1,13 +1,16 @@
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+| ---- | ------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.61.0 |
 
 ## Providers
 
 | Name | Version |
 | ---- | ------- |
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.61.0 |
 
 ## Modules
 
@@ -17,29 +20,28 @@ No modules.
 
 | Name | Type |
 | ---- | ---- |
-| [aws_eip.nat](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
-| [aws_internet_gateway.igw](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway) | resource |
-| [aws_lb.external_alb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb) | resource |
-| [aws_lb_listener.http](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener) | resource |
-| [aws_lb_target_group.alb_tg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group) | resource |
-| [aws_nat_gateway.nat](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway) | resource |
-| [aws_route_table.private_rt](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table) | resource |
-| [aws_route_table.public_rt](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table) | resource |
-| [aws_route_table_association.private](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.public_1](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.public_2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association) | resource |
-| [aws_security_group.alb_sg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
-| [aws_security_group.app_sg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
-| [aws_security_group_rule.alb_allow_all_egress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_security_group_rule.alb_allow_http](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_security_group_rule.app_allow_all_egress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_security_group_rule.app_allow_from_alb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_security_group_rule.temp_test](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_subnet.private](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet) | resource |
-| [aws_subnet.public_1](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet) | resource |
-| [aws_subnet.public_2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet) | resource |
-| [aws_vpc.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc) | resource |
-| [aws_availability_zones.zones](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
+| [aws_eip.nat](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/eip) | resource |
+| [aws_internet_gateway.igw](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/internet_gateway) | resource |
+| [aws_lb.external_alb](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/lb) | resource |
+| [aws_lb_listener.http](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/lb_listener) | resource |
+| [aws_lb_target_group.alb_tg](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/lb_target_group) | resource |
+| [aws_nat_gateway.nat](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/nat_gateway) | resource |
+| [aws_route_table.private_rt](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/route_table) | resource |
+| [aws_route_table.public_rt](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/route_table) | resource |
+| [aws_route_table_association.private](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.public_1](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.public_2](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/route_table_association) | resource |
+| [aws_security_group.alb_sg](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group) | resource |
+| [aws_security_group.app_sg](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group) | resource |
+| [aws_security_group_rule.alb_allow_all_egress](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
+| [aws_security_group_rule.alb_allow_http](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
+| [aws_security_group_rule.app_allow_all_egress](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
+| [aws_security_group_rule.app_allow_from_alb](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
+| [aws_subnet.private](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/subnet) | resource |
+| [aws_subnet.public_1](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/subnet) | resource |
+| [aws_subnet.public_2](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/subnet) | resource |
+| [aws_vpc.main](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/vpc) | resource |
+| [aws_availability_zones.zones](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/data-sources/availability_zones) | data source |
 
 ## Inputs
 

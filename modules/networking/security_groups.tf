@@ -1,5 +1,5 @@
 # ==========================================
-# 1. CORE SECURITY GROUPS (Kept Intentionaly Empty)
+# 1. CORE SECURITY GROUPS (Kept Intentionally Empty)
 # ==========================================
 
 resource "aws_security_group" "alb_sg" {
