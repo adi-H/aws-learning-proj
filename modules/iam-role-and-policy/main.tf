@@ -30,8 +30,8 @@ data "aws_iam_policy_document" "s3_access" {
 
 # create an official iam policy resource
 resource "aws_iam_policy" "this" {
-  name   = "s3-bucket-access-policy"
-  policy = data.aws_iam_policy_document.s3_access.json
+  name_prefix = "s3-bucket-access-policy-"
+  policy      = data.aws_iam_policy_document.s3_access.json
 }
 
 # attach the role to the policy

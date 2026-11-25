@@ -1,6 +1,6 @@
 resource "aws_iam_role" "combined_role" {
-  name = "ec2_combined_iam_role"
-  tags = { Name = "${var.environment}-ec2_combined_role" }
+  name_prefix = "${var.vm_name}-role-"
+  tags        = { Name = "${var.environment}-ec2_combined_role" }
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -24,6 +24,6 @@ resource "aws_iam_role_policy_attachment" "extra_policies" {
 }
 
 resource "aws_iam_instance_profile" "final_profile" {
-  name = "learning-ec2-final-profile"
-  role = aws_iam_role.combined_role.name
+  name_prefix = "${var.vm_name}-profile-"
+  role        = aws_iam_role.combined_role.name
 }
