@@ -1,5 +1,5 @@
 ## s3 bucket
-__last update__ - oct 19, 2026 
+__last update__ - nov 25, 2026 
 
 #### what did i learn 
 - how does an s3 bucket work in aws
@@ -7,9 +7,12 @@ __last update__ - oct 19, 2026
 - when i might want to have individual or global versions.tf
   - individual - if i want the modules to be used separately or to be reusable 
   - global - when i am using them as building blocks under the same main project, or when the organization requires the same versions 
-- bucket names are unique, and so i used bucket-prefix instead of bucket-name 
+- bucket names are globally unique, and so i used `bucket_prefix` instead of `bucket` (name) 
 
 #### related resources 
+- [iam-role-and-policy](../iam-role-and-policy/learn-log.md) - grants the ec2 access to this bucket
+- project log: [oct 20](../../learn-logs/oct-20-26.md)
 
 #### what this module might need in the future 
 - expand variables to allow more flexibility when creating the bucket  
+  - public access block, versioning, `force_destroy`

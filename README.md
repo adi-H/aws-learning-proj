@@ -1,12 +1,6 @@
 # aws-learning-proj
 
+terraform modules for learning aws: ec2, s3, iam and networking (vpc, private subnet, nat gateway, application load balancer).
 
-## other notes 
-in some of the project structuring, at least with security groups
-i thought this reddit thread is interesting and i implemented some of it to keep the code modular 
-https://www.reddit.com/r/aws/comments/puoty4/aws_terraform_how_do_you_manage_your_security/
-
-
-### sept 6, 26 
-finished the ec2 module that allows to deploy an ec2 machine (with very basic specs) with a private sg 
-ec2/examples shows a working code example that has been deployed into aws and destroyed
+## learning logs
+the process, problems and lessons are documented in [learn-logs](learn-logs/README.md), and each module has its own `learn-log.md`.
