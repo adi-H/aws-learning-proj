@@ -29,4 +29,3 @@ __last update__ - nov 25, 2026
   - change the user_data into base64 (when relevant) 
 - unique iam role / instance profile names (`name_prefix`), so the module can be deployed more than once per account
 - remove the open ssh (port 22) rule, now that access is through ssm
-- make `networking_security_group_id` optional, so the example works without the networking module

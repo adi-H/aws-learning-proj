@@ -46,10 +46,10 @@ resource "aws_instance" "vm" {
   )
 
   # passing the name of the basic sg group i created above so i can export and add others if needed 
-  vpc_security_group_ids = [
-    aws_security_group.sg.id,
-    var.networking_security_group_id
-  ]
+  vpc_security_group_ids = concat(
+    [aws_security_group.sg.id],
+    var.additional_security_group_ids
+  )
 
   subnet_id = data.aws_subnet.selected.id
 
