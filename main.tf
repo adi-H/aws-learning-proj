@@ -38,7 +38,7 @@ module "nginx-vm" {
   tags = { env = "dev", service = "nginx" }
 
   additional_policy_arns       = [module.ec2-access-to-my-bucket.iam_policy_arn]
-  networking_security_group_id = module.networking.app_sg_id
+  additional_security_group_ids = [module.networking.app_sg_id]
 
   user_data = <<-EOF
               #!/bin/bash
