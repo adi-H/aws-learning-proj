@@ -15,7 +15,7 @@ __last update__ - oct 26, 2026
 #### related resources 
 
 #### what this module might need in the future 
-- expand variables to allow more modality when creating the ec2 instance 
+- expand variables to allow more flexibility when creating the ec2 instance 
   - additional storage devices, types, sizes 
   - monitoring
   - other operating systems support
