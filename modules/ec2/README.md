@@ -1,6 +1,6 @@
 # Terraform Module: AWS ec2
 
-This module provisions a basic AWS ec2 instance. this comes with a basic private security group to allow incoming traffic
+This module provisions a basic AWS ec2 instance. this comes with its own security group (outbound traffic only by default - extra groups can be attached with `additional_security_group_ids`), and access to the instance is through ssm
 
 
 <!-- BEGIN_TF_DOCS -->
@@ -32,7 +32,6 @@ No modules.
 | [aws_instance.vm](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/instance) | resource |
 | [aws_security_group.sg](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group) | resource |
 | [aws_vpc_security_group_egress_rule.allow_all_outbound](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/vpc_security_group_egress_rule) | resource |
-| [aws_vpc_security_group_ingress_rule.allow_ssh](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/vpc_security_group_ingress_rule) | resource |
 | [aws_ami.amazon_linux](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/data-sources/ami) | data source |
 | [aws_subnet.selected](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/data-sources/subnet) | data source |
 | [aws_subnets.fallback](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/data-sources/subnets) | data source |
@@ -43,10 +42,10 @@ No modules.
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_additional_policy_arns"></a> [additional\_policy\_arns](#input\_additional\_policy\_arns) | A list of extra IAM policy ARNs to attach to the EC2 instance | `list(string)` | `[]` | no |
+| <a name="input_additional_security_group_ids"></a> [additional\_security\_group\_ids](#input\_additional\_security\_group\_ids) | Extra security group IDs to attach to the instance, on top of the module's own sg | `list(string)` | `[]` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | the env name | `string` | `"test"` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | EC2 instance type | `string` | `"t3.micro"` | no |
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | SSH key pair name. Set to null to disable SSH key. | `string` | `null` | no |
-| <a name="input_networking_security_group_id"></a> [networking\_security\_group\_id](#input\_networking\_security\_group\_id) | n/a | `string` | n/a | yes |
 | <a name="input_sg_name"></a> [sg\_name](#input\_sg\_name) | Name tag for the security-group instance | `string` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | The ID of the Subnet where the EC2 instance will be deployed | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags | `map(string)` | `{}` | no |

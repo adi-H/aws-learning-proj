@@ -56,6 +56,8 @@ variable "additional_policy_arns" {
   description = "A list of extra IAM policy ARNs to attach to the EC2 instance"
 }
 
-variable "networking_security_group_id" {
-  type = string
+variable "additional_security_group_ids" {
+  type        = list(string)
+  default     = []
+  description = "Extra security group IDs to attach to the instance, on top of the module's own sg"
 }

@@ -37,8 +37,8 @@ module "nginx-vm" {
 
   tags = { env = "dev", service = "nginx" }
 
-  additional_policy_arns       = [module.ec2-access-to-my-bucket.iam_policy_arn]
-  networking_security_group_id = module.networking.app_sg_id
+  additional_policy_arns        = [module.ec2-access-to-my-bucket.iam_policy_arn]
+  additional_security_group_ids = [module.networking.app_sg_id]
 
   user_data = <<-EOF
               #!/bin/bash
@@ -48,8 +48,6 @@ module "nginx-vm" {
               systemctl enable httpd
               echo "<h1>Hello World from EC2 deployed via Terraform!</h1>" > /var/www/html/index.html
               EOF
-
-  depends_on = [module.ec2-access-to-my-bucket]
 }
 
 resource "aws_lb_target_group_attachment" "web_app" {

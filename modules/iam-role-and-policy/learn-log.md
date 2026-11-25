@@ -34,4 +34,3 @@ for example, using IAM to allow an ec2 to view/read/write from a s3 bucket:
 #### what this module might need in the future 
 - might be best to split into an iam role and iam policy modules, to allow for more flexibility 
 - also, this module does only one thing, and might be best to make it more dynamic in the future but as this is a learning exercise, i might revisit later on 
-- the policy name (`s3-bucket-access-policy`) is hardcoded, so the module can't be deployed twice in the same account - use `name_prefix` like the role

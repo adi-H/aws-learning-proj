@@ -14,14 +14,9 @@ the process, problems and lessons are documented in [learn-logs](learn-logs/READ
 - [x] application load balancer in front of the private ec2, with a target group and health checks (oct 26)
 - [x] ssm access to the private instance through a combined iam role and instance profile
 - [x] security groups that reference each other (app only accepts port 80 from the alb)
-- [x] `terraform test` for the networking module
 - [x] terraform-docs readmes for every module
 - [x] learn logs for every module and project milestone
-- [x] add `versions.tf` to all modules and set terraform `>= 1.6.0`
-- [ ] fix the networking and ec2 examples
-- [ ] unique iam names (`name_prefix`) so modules can be deployed more than once
-- [ ] remove the open ssh rule from the ec2 sg (access is through ssm)
-- [ ] remove the unneeded `depends_on` on the `nginx-vm` module
+- [ ] plan tests with mock providers for every module (networking already has an apply test)
 - [ ] remote state backend in s3 (`use_lockfile = true`) with a `bootstrap/` folder
 - [ ] ci with github actions (fmt, validate, tflint, security scan, plan) using an oidc role
 - [ ] auto scaling group across 2 availability zones instead of a single ec2
