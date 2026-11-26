@@ -20,6 +20,7 @@ No modules.
 
 | Name | Type |
 | ---- | ---- |
+| [aws_default_security_group.default](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/default_security_group) | resource |
 | [aws_eip.nat](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/eip) | resource |
 | [aws_internet_gateway.igw](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/internet_gateway) | resource |
 | [aws_lb.external_alb](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/lb) | resource |
@@ -33,8 +34,8 @@ No modules.
 | [aws_route_table_association.public_2](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/route_table_association) | resource |
 | [aws_security_group.alb_sg](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group) | resource |
 | [aws_security_group.app_sg](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group) | resource |
-| [aws_security_group_rule.alb_allow_all_egress](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.alb_allow_http](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
+| [aws_security_group_rule.alb_egress_to_app](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.app_allow_all_egress](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.app_allow_from_alb](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/security_group_rule) | resource |
 | [aws_subnet.private](https://registry.terraform.io/providers/hashicorp/aws/6.61.0/docs/resources/subnet) | resource |

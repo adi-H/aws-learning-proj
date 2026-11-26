@@ -19,10 +19,18 @@ resource "aws_vpc_security_group_egress_rule" "allow_all_outbound" {
 
 
 resource "aws_instance" "vm" {
+  #checkov:skip=CKV_AWS_126:detailed (1-minute) monitoring costs extra, the free 5-minute metrics are enough for now
 
   ami           = local.ami_id
   instance_type = var.instance_type
   key_name      = var.key_name
+  ebs_optimized = true # t3 instances are ebs-optimized by default, this makes it explicit
+
+  # require IMDSv2 (session tokens) - blocks credential theft through the metadata service (e.g. via ssrf)
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
 
   iam_instance_profile = aws_iam_instance_profile.final_profile.name
 
