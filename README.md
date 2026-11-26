@@ -16,9 +16,10 @@ the process, problems and lessons are documented in [learn-logs](learn-logs/READ
 - [x] security groups that reference each other (app only accepts port 80 from the alb)
 - [x] terraform-docs readmes for every module
 - [x] learn logs for every module and project milestone
-- [ ] plan tests with mock providers for every module (networking already has an apply test)
+- [x] ci part 1 with github actions: fmt, validate, tflint and a security scan on every pr
+- [ ] plan tests with mock providers for every module, run in ci (networking already has an apply test)
 - [ ] remote state backend in s3 (`use_lockfile = true`) with a `bootstrap/` folder
-- [ ] ci with github actions (fmt, validate, tflint, security scan, plan) using an oidc role
+- [x] ci part 2: oidc role to aws and `terraform plan` on every pr
 - [ ] auto scaling group across 2 availability zones instead of a single ec2
 - [ ] cloudwatch alarms (unhealthy hosts, 5xx, cpu) with sns email alerts
 - [ ] "forbidden" s3 bucket, bucket hardening and an s3 gateway vpc endpoint

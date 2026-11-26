@@ -52,7 +52,9 @@ resource "aws_instance" "vm" {
     delete_on_termination = true
   }
 
-  depends_on = [aws_iam_role_policy_attachment.ssm_core,
-  aws_iam_role_policy_attachment.extra_policies]
+  depends_on = [
+    aws_iam_role_policy_attachment.ssm_core,
+    aws_iam_role_policy_attachment.extra_policies,
+  ]
 
 }
