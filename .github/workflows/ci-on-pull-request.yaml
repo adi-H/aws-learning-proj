@@ -34,6 +34,20 @@ jobs:
       - run: terraform init -backend=false -input=false
       - run: terraform validate -no-color
 
+  security-scan:
+    name: 'Security scan (checkov)'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: .
+          framework: terraform
+          quiet: true      # only show failed checks
+          soft_fail: true  # report findings without failing the pr, for now
+
   terraform-plan:
     name: 'Terraform Plan'
     runs-on: ubuntu-latest
