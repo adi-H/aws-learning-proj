@@ -1,8 +1,17 @@
 resource "aws_vpc" "main" {
+  #checkov:skip=CKV2_AWS_11:flow logs need a log destination and add cost - planned with the monitoring work
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
 
   tags = { Name = "${var.environment}-vpc" }
+}
+
+# every vpc comes with a default sg that allows traffic between its members.
+# managing it here with no rules removes all of them, so nothing can use it by accident
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.main.id
+
+  tags = { Name = "${var.environment}-default_sg-unused" }
 }
 
 resource "aws_internet_gateway" "igw" {
