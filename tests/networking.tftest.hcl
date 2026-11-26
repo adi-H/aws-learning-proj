@@ -3,8 +3,8 @@ provider "aws" {
 }
 
 variables {
-  vpc_cidr           = "10.99.0.0/16"
-    public_1_subnet = {
+  vpc_cidr = "10.99.0.0/16"
+  public_1_subnet = {
     cidr_block = "10.99.1.0/24"
   }
   public_2_subnet = {
@@ -13,7 +13,7 @@ variables {
   private_subnet = {
     cidr_block = "10.99.3.0/24"
   }
-  environment        = "ci-test"
+  environment = "ci-test"
 }
 
 run "apply_and_verify_outputs" {
